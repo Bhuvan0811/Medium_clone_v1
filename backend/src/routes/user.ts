@@ -28,7 +28,7 @@ userRouter.post('/signup', async (c)=>{
         data: body,
     });
 
-    const token = "Bearer " + await sign({ id: user.id }, c.env.JWT_SECRET);
+    const token = await sign({ id: user.id }, c.env.JWT_SECRET);
     return c.json({ token });
 })
 userRouter.post('/signin', async (c)=>{
